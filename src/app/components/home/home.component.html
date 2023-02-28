@@ -1,0 +1,154 @@
+<img class="dvlaImage" src="https://www.servicecomplaintreview.co.uk/wp-content/uploads/2019/12/DVLA-Logo.jpg">
+
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="search()">
+    <mat-form-field appearance="fill">
+      <mat-label>Please enter a valid registration number.</mat-label>
+      <input matInput placeholder="ABC1234" [maxlength]="7" (keyup)="onKeyPress($event)" formControlName="registrationNumber">
+      <mat-error *ngIf="isRegistrationNumberValid()">Please ensure that registration number is valid.</mat-error>
+    </mat-form-field>
+</form>
+
+<button mat-raised-button [disabled]="!form?.valid" (click)="search()">Search</button>
+
+<mat-grid-list *ngIf="vehicleDetails" cols="2">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>ART End Date</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.artEndDate.toString() | date: 'medium'}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>C02 Emissions</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.co2Emissions}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Colour</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.colour}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>V5C Issued Date</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.dateOfLastV5CIssued.toString() | date: 'medium'}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Engine Capacity</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.engineCapacity}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Euro Status</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.euroStatus}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Fuel Type</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.fuelType}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Make</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.make}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>For Export</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.markedForExport}}
+        </mat-card-subtitle>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card-title>Month of First Registration</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.monthOfFirstRegistration}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>MOT Status</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.motStatus}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Real Driving Emissions</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.realDrivingEmissions}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    
+      <mat-card-content>
+        <mat-card-title>Registration Number</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.registrationNumber}}
+        </mat-card-subtitle>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card-title>Revenue Weight</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.revenueWeight}}
+        </mat-card-subtitle>
+      </mat-card-content>
+
+      <mat-card-content>
+        <mat-card-title>Tax Due Date</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.taxDueDate.toString() | date: 'medium'}}
+        </mat-card-subtitle>
+      </mat-card-content>
+      
+      <mat-card-content>
+        <mat-card-title>Tax Status</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.taxStatus}}
+        </mat-card-subtitle>
+      </mat-card-content>
+      
+      <mat-card-content>
+        <mat-card-title>Type Approval</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.typeApproval}}
+        </mat-card-subtitle>
+      </mat-card-content>
+      
+      <mat-card-content>
+        <mat-card-title>Wheel Plan</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.wheelplan}}
+        </mat-card-subtitle>
+      </mat-card-content>
+      
+      <mat-card-content>
+        <mat-card-title>Year Of Manufacture</mat-card-title>
+        <mat-card-subtitle>
+          {{vehicleDetails.yearOfManufacture}}
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
